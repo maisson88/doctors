@@ -1,0 +1,12 @@
+
+input{
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    
+}
+.specialty{
+    color: rgb(5, 75, 75);
+    background-color: antiquewhite;
+    border-radius: 5px;
+}

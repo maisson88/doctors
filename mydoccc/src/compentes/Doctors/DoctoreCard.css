@@ -1,0 +1,12 @@
+.specialty{
+    color: rgb(5, 75, 75);
+    background-color: antiquewhite;
+    border-radius: 5px;
+}
+.card{
+    border-radius: 20px;
+}
+.card a:hover{
+    /* font-size: 5rem; */
+    color: cornflowerblue;
+}

@@ -1,0 +1,23 @@
+.specialty{
+    color: rgb(5, 75, 75);
+    background-color: antiquewhite;
+    border-radius: 5px;
+}
+.bb{
+    border-bottom: 1px solid rgba(0, 0, 255, 0.192);
+    padding-bottom: 8px;
+    /* margin-bottom: 40px; */
+    margin-top: 20px;
+}
+button{
+    margin-right: 30px;
+    border: none;
+    background-color: transparent;
+}
+.border-b{
+    color: rgb(34, 132, 161);
+}
+
+.border-f{
+    color:rgb(34, 132, 161);
+}

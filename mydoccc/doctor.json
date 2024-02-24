@@ -1,0 +1,59 @@
+
+{"doctors":[
+  {
+    "id": "01",
+    "name": "Dr.Mohamed Ahmed",
+    "specialty": "Surgeon",
+    "avgRating": 4.8,
+   "totalRating": 272,
+  "photo": "https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg",
+    "totalPatients": 1500,
+    "hospital": "Mount Adora  hospital, Sylhet.",
+    "area":"Alexandria"
+  },
+  {
+    "id": "02",
+    "name": "Dr.Saleh Mahmud",
+    "specialty": "Neurologist",
+    "avgRating": 4.8,
+   "totalRating": 272,
+  "photo": "https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg",
+    "totalPatients": 1500,
+    "hospital": "Mount Adora  hospital, Sylhet.",
+    "area":"Alexandria"
+  },
+  {
+    "id": "03",
+    "name": "Dr.Farid Ahmed",
+    "specialty": "Dermatologist",
+    "avgRating": 4.8,
+   "totalRating": 272,
+  "photo": "./doctor-img03.png",
+    "totalPatients": 1500,
+    "hospital": "Mount Adora  hospital, Sylhet.",
+    "area":"Assiut"
+  },
+  {
+    "id": "04",
+    "name": "Dr. Farid Uddin",
+    "specialty": "Dermatologist",
+    "avgRating": 4.8,
+   "totalRating": 272,
+  "photo": "./doctor-img03.png",
+    "totalPatients": 1500,
+    "hospital": "Mount Adora  hospital, Sylhet.",
+    "area":"El Ismailia"
+  },
+  {
+    "id": "05",
+    "name": "Dr.Farid Uddin",
+    "specialty": "Dermatologist",
+    "avgRating": 4.8,
+   "totalRating": 272,
+  "photo": "./doctor-img03.png",
+    "totalPatients": 1500,
+    "hospital": "Mount Adora  hospital, Sylhet.",
+    "area":"El Ismailia"
+  }
+ 
+]}
