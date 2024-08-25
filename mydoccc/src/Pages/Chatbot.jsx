@@ -69,49 +69,6 @@ const Chatbot=()=>{
     <>
     </>
 
-    //   <div className="sidebar">
-    //     <div className="upperSide">
-    //       <div className="upperSideTop">
-    //         <img src={Tetologo} alt="" className="logo" />
-    //         <span className="brand">Teto</span>
-    //         <button className="midBtn">
-    //           <img src={Addbtn} alt="" className="addBtn" /> New Chat
-    //         </button>
-    //       </div>
-    //       <div className="upperSideBottom">
-    //         <button className="query">
-    //           <img src={Massageicon} alt="" /> I have a headache?
-    //         </button>
-    //         <button className="query">
-    //           <img src={Massageicon} alt="" /> What is COVID-19?
-    //         </button>
-    //       </div>
-    //     </div>
-    //     <div className="lowerSide">
-    //       <div><img src={Home} alt="" /> Home</div>
-    //       <div><img src={Save} alt="" /> Save</div>
-    //       <div><img src={Upgrade} alt="" /> Upgrade to Pro</div>
-    //     </div>
-    //   </div>
-    //   <div className="main">
-    //     <div className="chat-window">
-    //       {messages.map((message, index) => (
-    //         <div key={index} className={`message ${message.sender}`}>
-    //           {message.sender === 'ai' && <img src={Tetoicon} alt="" style={{ width: '30px', height: '30px', marginRight: '10px', borderRadius: '50%' }} />}
-    //           {message.content}
-    //         </div>
-    //       ))}
-    //       <div ref={masEnd} />
-    //     </div>
-    //     <div className="chat footeree">
-    //       <div className="inp">
-    //         <input type="text" value={input} onChange={handleInputChange} placeholder="Type your message..." />
-    //         <button onClick={sendMessage} className="send"><img src={SendBtn} alt="send" /></button>
-    //       </div>
-    //       <p>Teto may produce inaccurate information about people, places, or facts. Teto version 2.4.9</p>
-    //     </div>
-    //   </div>
-    // </div>
   );
 
 }
