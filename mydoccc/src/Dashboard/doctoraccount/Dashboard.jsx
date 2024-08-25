@@ -10,10 +10,52 @@ import starIcon from "../../assets/images/Star.png"
 import About from "../../Pages/Docrors/About";
 import { formatDate } from "../../Utils/formatDate";
 import Profile from "./Profile";
+import Appointments from "./Appointments";
+import { useEffect } from "react";
+import axios from "axios";
+import Foter from "../../compentes/foater/Foter";
 // import UseFetchData from "../../hooks/UseFetchData";
 const Dashboard=()=>{
     // const {data,loading,error}=UseFetchData('url')
-    const [tab,setTab]=useState('overview')
+    const [tab,setTab]=useState('Profile')
+    const [docData,setDocData]=useState({})
+    const token=localStorage.getItem('token')
+    const cleanedTokenString = token.replace(/\\/g, "");
+    const cleanedTokenString2 = cleanedTokenString.replace(/"/g, "");
+    console.log(cleanedTokenString2)
+    useEffect(()=>{
+        const getDoctore=()=>{
+          axios.get('https://doctorz.onrender.com/api/v1/doctors/me', {
+            headers: {
+              'Authorization': `Bearer ${cleanedTokenString2}`
+            }
+          })
+          .then(res => {
+            console.log("doctor",res.data.data.data);
+            setDocData(res.data.data.data)
+            console.log("docdata",docData)
+         
+          
+          })
+          .catch(error => {
+            if (error.response) {
+              console.log(error.response.data);
+              console.log(error.response.status);
+              console.log(error.response.headers);
+             
+            } else if (error.request) {
+              console.log(error.request);
+            
+            } else {
+              console.log('Error', error.message);
+            
+            }
+          });
+      
+        }
+        getDoctore();
+      
+      },[]) 
     return(
         <>
         <Header/>
@@ -28,26 +70,26 @@ const Dashboard=()=>{
                 <div className="col-lg-2 col-sm-12">
                     <Tabs tab={tab} setTab={setTab}/>
                 </div>
-                {
+                {/* {
                     tab==='overview'&&(
                         <div className="col-lg-10  col-sm-12">
                     <div className="row">
-                      <div className="col-3">
-                      <img style={{borderRadius:'10px'}} className="img-fluid" src="https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg" alt=""/> 
+                      <div className="col-lg-3 col-sm-12 mt-3">
+                      <img style={{borderRadius:'10px'}} className="img-fluid h-100" src={docData.photo} alt=""/> 
                       </div>
                     
-                    <div className="col-7">
-                    <span className="p-1 " style={{backgroundColor:'antiquewhite',borderRadius:'10px',color:'rgb(5, 75, 75)'}}>Surgeon</span>
-                    <h4>Dr.Sara Ahmed Mohamed</h4>
+                    <div className="col-lg-7  mt-3">
+                    <span className="p-1 " style={{backgroundColor:'antiquewhite',borderRadius:'10px',color:'rgb(5, 75, 75)'}}>{docData.specialization}</span>
+                    <h4>{docData.fullName}</h4>
                     <div className="d-flex">
                   <img src={starIcon} alt="" />
-                  <span>4.8</span>
-                  <span className="ms-1">(272)</span>
+                  <span>{docData.ratingAverage}</span>
+                  <span className="ms-1">({docData.ratingsQuantity})</span>
                   </div>
                  
                   <div className="mt-3 mb-5">
           
-          <h6 className="about">Abot of<span> Dr.Sara Ahed Mohamed</span></h6>
+          <h6 className="about">Abot of <span>{docData.fullName}</span></h6>
           <p className="w-lg-50" >Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt esse repudiandae magni placeat ipsam suscipit, architecto corporis at iste officia, vitae qui est unde nemo perferendis eaque sequi? Dignissimos, nostrum?</p>
           </div>
           <h5>Education</h5>
@@ -67,25 +109,29 @@ const Dashboard=()=>{
                     
                 </div>
                     )
-                }
+                } */}
                 
                 {
                     tab==='profile'&&(
-                        <div className="col-lg-10  col-sm-12">
+                        <div className="col-lg-10  col-sm-12  d-flex justify-content-center mt-4">
+                            <div className="">
                         <Profile/>
                         </div>
+                        </div>
+                        
                     )
                 }
                 {
                     tab==='appointments'&&(
-                        <div className="col-lg-10  col-sm-12">
-                        appointments
+                        <div className="col-lg-10  col-sm-12 d-flex align-items-center justify-content-center">
+                        <Appointments/>
                         </div>
                     )
                 }
             </div>
         
         </div>
+        <Foter/>
         
         </>
     )

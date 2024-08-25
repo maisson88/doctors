@@ -7,20 +7,22 @@ import { useNavigate } from "react-router-dom";
 function Formm() {
   const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
-        name:"",
+        fullName:"",
         email:"",
         password:"",
-        role:"patient",
+        age:"",
+        userType:"user",
         photo:null,
-        confirmpassword:"",
+        passwordConfirm:"",
         phone:"",
-        pirthdate:"",
-        gender:""
+        // pirthdate:"",
+        gender:"",
+        
   });
   const navigate=useNavigate()
   const submitHandler=async event=>{
     if(valdite()){
-      axios.post('http://localhost:1000/infopatiiom',formData)
+      axios.post('https://doctorz.onrender.com/api/v1/auth/signup',formData)
       .then(res=>{
         console.log(res)
         toast.success('Signup done sucessfuly')
@@ -30,11 +32,16 @@ function Formm() {
       })
       .catch(error=>{
         console.log(error)
-        toast.danger('Something wrong,please try again')
+        toast.success(error.message)
   
       })
 
     }
+   
+  
+   
+  
+    
    
        
 
@@ -56,26 +63,26 @@ const valdite=()=>{
     toast.warning('The password must be at least 8 characters long')
    
   }
-  if(formData.confirmpassword===''||formData.confirmpassword===null){
-    result=false;
-    toast.warning('please enter your confirm password')
+  // if(formData.confirmpassword===''||formData.confirmpassword===null){
+  //   result=false;
+  //   toast.warning('please enter your confirm password')
    
-  }
-  if(formData.phone.length<11&&formData.phone.length>11){
-    result=false;
-    toast.warning('please enter your valid number')
+  // }
+  // if(formData.phone.length<11&&formData.phone.length>11){
+  //   result=false;
+  //   toast.warning('please enter your valid number')
    
-  }
-  if(formData.name===''||formData.name===null){
-    result=false;
-    toast.warning('please enter your name')
+  // }
+  // if(formData.name===''||formData.name===null){
+  //   result=false;
+  //   toast.warning('please enter your name')
    
-  }
-  if(formData.confirmpassword!=formData.password){
-    result=false;
-    toast.warning('confirm password not equel password')
+  // }
+  // if(formData.confirmpassword!=formData.password){
+  //   result=false;
+  //   toast.warning('confirm password not equel password')
    
-  }
+  // }
  
   return result;
 }
@@ -108,12 +115,14 @@ const valdite=()=>{
             onClick={() => {
               setPage((currPage) => currPage - 1);
             }}
-            className="btn mb-5 btn-primary"
+            className="btn mb-5 text-light"
+            style={{backgroundColor:'#3E8989'}}
           
           >
             Back
           </button>
           <button
+          style={{backgroundColor:'#3E8989'}}
             onClick={() => {
               if (page === FormTitles.length - 1) {
               
@@ -125,7 +134,7 @@ const valdite=()=>{
                 setPage((currPage) => currPage + 1);
               }
             }}
-            className="btn  mb-5 ms-5 btn-primary"
+            className="btn  mb-5 ms-5 text-light"
             
           >
             {page === FormTitles.length - 1 ? "Submit" : "Continue"}

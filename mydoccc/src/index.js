@@ -9,6 +9,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { AuthContextProvider } from './contextApi/AuthContext';
 import { BrowserRouter } from 'react-router-dom';
+import { GoogleOAuthProvider } from '@react-oauth/google';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -19,8 +20,10 @@ root.render(
     <ToastContainer theme='dark' position='top-right'/>
     
 <AuthContextProvider>
-
+  
+<GoogleOAuthProvider clientId="264278569980-8tr1t2fi5l0atm8u9o0tpkk3dglb24l9.apps.googleusercontent.com">
     <App />
+    </GoogleOAuthProvider>
     </AuthContextProvider>
     
   </React.StrictMode>

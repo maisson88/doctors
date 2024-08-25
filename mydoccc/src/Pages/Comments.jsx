@@ -4,7 +4,7 @@
 const Comments=()=>{
     return(
         <>
-        <section  style={{marginBottom:'200px',marginTop:'200px'}}>
+        <section  style={{marginBottom:'200px',marginTop:'80px'}}>
         <div className="container">
           <div className="row">
             <div className="col-lg-4 col-md-6 mt-2">
@@ -12,7 +12,7 @@ const Comments=()=>{
                 <div className="d-flex justify-content-between">
                 <div className="d-flex">
                 <figure className="m-auto " style={{ border:'none',width:'50px',height:'50px'}}>
-    <img class="img-fluid rounded-circle" src={`https://www.wilsoncenter.org/sites/default/files/media/images/person/james-person-1.jpg`} alt="User Avatar" style={{width:'50px',height:'50px'}}/>
+    <img class="img-fluid rounded-circle" src={`https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg?t=st=1718035415~exp=1718036015~hmac=78f9cd75597dd9ee9925e748a8a4fde3fc9ea7a47313af8182de50d9d29808be`} alt="User Avatar" style={{width:'50px',height:'50px'}}/>
     </figure>
     <div className="ms-2">
     <span>Ali Ahmed</span>
@@ -53,7 +53,7 @@ const Comments=()=>{
                 <div className="d-flex justify-content-between">
                 <div className="d-flex">
                 <figure className="m-auto " style={{ border:'none',width:'50px',height:'50px'}}>
-    <img class="img-fluid rounded-circle" src={`https://www.wilsoncenter.org/sites/default/files/media/images/person/james-person-1.jpg`} alt="User Avatar" style={{width:'50px',height:'50px'}}/>
+    <img class="img-fluid rounded-circle" src={`https://img.freepik.com/free-photo/portrait-happy-male-with-broad-smile_176532-8175.jpg?t=st=1718035415~exp=1718036015~hmac=aeac86402e81872311fc0fadc502c497a73f737d70d936cf60e260b54e18ea32`} alt="User Avatar" style={{width:'50px',height:'50px'}}/>
     </figure>
     <div className="ms-2">
     <span>Ali Ahmed</span>
@@ -94,7 +94,7 @@ const Comments=()=>{
                 <div className="d-flex justify-content-between">
                 <div className="d-flex">
                 <figure className="m-auto " style={{ border:'none',width:'50px',height:'50px'}}>
-    <img class="img-fluid rounded-circle" src={`https://www.wilsoncenter.org/sites/default/files/media/images/person/james-person-1.jpg`} alt="User Avatar" style={{width:'50px',height:'50px'}}/>
+    <img class="img-fluid rounded-circle" src={`https://img.freepik.com/free-photo/portrait-beautiful-girl-with-short-ginger-hair-looks-with-happy-relaxed-expression_273609-30416.jpg?t=st=1718035415~exp=1718036015~hmac=bc762d11f25999d8a800bbf3b285c6974bcbaf5ac853b0baf3b28c8b0a8a8f9d`} alt="User Avatar" style={{width:'50px',height:'50px'}}/>
     </figure>
     <div className="ms-2">
     <span>Ali Ahmed</span>

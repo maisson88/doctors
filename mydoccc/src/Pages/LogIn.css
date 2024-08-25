@@ -15,8 +15,3 @@
 .container h1{
     text-shadow: cornflowerblue;
 }
-@media (max-width: 991.98px) {
-    .cascading-right {
-      margin-right: 0;
-    }
-  }

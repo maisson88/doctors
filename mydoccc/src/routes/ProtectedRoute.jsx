@@ -7,7 +7,8 @@ const ProtectedRoute=({childern,allowedRoles})=>{
     const {token,role}=useContext(authContext)
     const isAllowad=allowedRoles.includes(role)
     const accessibleRoute=
-    token&&isAllowad?childern:<Navigate to='/login' replace={true}/>
+    token&&isAllowad? childern : <Navigate to='/login' replace={true}/>
+    
     return accessibleRoute
     
 }

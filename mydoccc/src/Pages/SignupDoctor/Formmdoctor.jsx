@@ -10,44 +10,60 @@ import SignupThreeDoctor from "./SignupThreeDoctor";
 function Formmdoctor() {
   const [page, setPage] = useState(0);
   const [formData, setFormData] = useState({
-        name:"",
-        email:"",
-        password:"",
-        role:"doctor",
-        photo:null,
-        confirmpassword:"",
-        phone:"",
-        pirthdate:"",
-        pasport:null, 
-        gender:"",
-        video:null, 
+    
+    
+    fullName:"",
+    email:"",
+    password:"",
+    age:"",
+    userType:"doctor",
+    // photo:null,
+    passwordConfirm:"",
+    video:null, 
+    phoneNumber:"",
+    card:null, 
+   
+    gender:"",
+     // pirthdate:"",
+    
+    
        
 
   });
   const navigate=useNavigate()
   const submitHandler=async event=>{
     if(valdite()){
-      axios.post('http://localhost:1000/infopatiiom',formData)
-    .then(res=>{
-      console.log(res)
-      toast.success('Signup done sucessfuly')
-      navigate('/login')
-      
-      
-    })
-    .catch(error=>{
-      console.log(error)
-      toast.danger('Something wrong,please try again')
-
-    })
+      // axios.post('https://doctorz.onrender.com/api/v1/auth/signup',formData,{
+      //   headers: {
+      //     'Content-Type': 'multipart/form-data',
+      //   },
+      // })
+      axios.post('https://doctorz.onrender.com/api/v1/auth/signup',formData)
+      .then(res=>{
+        console.log(res)
+        toast.success('Signup done sucessfuly')
+        navigate('/login')
+        
+        
+      })
+      .catch(error=>{
+        console.log(error)
+        toast.error(error.response.data.message)
+  
+      })
 
     }
+   
+  
+   
+  
     
+   
        
 
 }
 
-  const FormTitles = ["step 1 of 3", "step 2 of 3","step 3 of 3"];
+  const FormTitles = ["step 1 of 3", "step 2 of 3","step 3 of 3"] 
 
   const PageDisplay = () => {
     if (page === 0) {
@@ -74,39 +90,39 @@ function Formmdoctor() {
     }
     if(!regExp.test(formData.password)){
       result=false;
-      toast.danger('The password must be at least 8 characters long')
+      toast.warning('The password must be at least 8 characters long')
      
     }
-    if(formData.confirmpassword===''||formData.confirmpassword===null){
+    if(formData.passwordConfirm===''||formData.passwordConfirm===null){
       result=false;
       toast.warning('please enter your confirm password')
      
     }
-    if(formData.phone.length<11&&formData.phone.length>11){
+    if(formData.phoneNumber.length<11&&formData.phoneNumber.length>11){
       result=false;
       toast.warning('please enter your valid number')
      
     }
-    if(formData.name===''||formData.name===null){
-      result=false;
-      toast.warning('please enter your name')
+    // if(formData.name===''||formData.name===null){
+    //   result=false;
+    //   toast.warning('please enter your name')
      
-    }
-    if(formData.confirmpassword!=formData.password){
-      result=false;
-      toast.warning('confirm password not equel password')
+    // }
+    // if(formData.confirmpassword!=formData.password){
+    //   result=false;
+    //   toast.warning('confirm password not equel password')
      
-    }
-    if(formData.video===''||formData.video===null){
-      result=false;
-      toast.warning('please upload the video')
+    // }
+    // if(formData.video===''||formData.video===null){
+    //   result=false;
+    //   toast.warning('please upload the video')
      
-    }
-    if(formData.pasport===''||formData.pasport===null){
-      result=false;
-      toast.warning('please upload the pasport')
+    // }
+    // if(formData.pasport===''||formData.pasport===null){
+    //   result=false;
+    //   toast.warning('please upload the pasport')
      
-    }
+    // }
     return result;
   }
 
@@ -114,7 +130,7 @@ function Formmdoctor() {
     < >
       
       <div className="container mt-5">
-      <span>{FormTitles[page]}</span>
+      <span style={{color:'#3E8989'}}>{FormTitles[page]}</span>
       </div>
          
         
@@ -126,11 +142,12 @@ function Formmdoctor() {
             onClick={() => {
               setPage((currPage) => currPage - 1);
             }}
-            className="btn btn-primary mb-5 "
+            className="btn text-light mb-5 " style={{backgroundColor:'#3E8989'}}
           >
             Back
           </button>
           <button
+          style={{backgroundColor:'#3E8989'}}
             onClick={() => {
               if (page === FormTitles.length - 1) {
               
@@ -142,7 +159,7 @@ function Formmdoctor() {
                 setPage((currPage) => currPage + 1);
               }
             }}
-            className="btn btn-primary mb-5 ms-5"
+            className="btn mb-5 ms-5 text-light"
           >
             {page === FormTitles.length - 1 ? "Submit" : "Continue"}
           </button>

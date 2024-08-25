@@ -28,7 +28,7 @@
     "specialty": "Dermatologist",
     "avgRating": 4.8,
    "totalRating": 272,
-  "photo": "./doctor-img03.png",
+  "photo":"https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg",
     "totalPatients": 1500,
     "hospital": "Mount Adora  hospital, Sylhet.",
     "area":"Assiut"
@@ -39,7 +39,7 @@
     "specialty": "Dermatologist",
     "avgRating": 4.8,
    "totalRating": 272,
-  "photo": "./doctor-img03.png",
+  "photo": "https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg",
     "totalPatients": 1500,
     "hospital": "Mount Adora  hospital, Sylhet.",
     "area":"El Ismailia"
@@ -50,7 +50,7 @@
     "specialty": "Dermatologist",
     "avgRating": 4.8,
    "totalRating": 272,
-  "photo": "./doctor-img03.png",
+  "photo": "https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg",
     "totalPatients": 1500,
     "hospital": "Mount Adora  hospital, Sylhet.",
     "area":"El Ismailia"

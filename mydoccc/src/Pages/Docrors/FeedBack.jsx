@@ -5,18 +5,54 @@ import FeedBackForm from "./FeddBackForm";
 import moment from 'moment';
 import axios from "axios";
 import { useEffect } from "react";
+import { json, useParams } from "react-router-dom";
 const FeedBack=()=>{
     const [showFeedBack,setFeedBack]=useState(false);
     const [comments,setComents]=useState([])
-    useEffect(()=>{
-        const getfeed=()=>{
-            axios.get(" http://localhost:3004/feeedback")
-            .then(res=>{
-                setComents(res.data)
-            }).catch(err=>console.log(err))
+    const {id}=useParams()
+    const token=localStorage.getItem('token')
+    const cleanedTokenString = token.replace(/\\/g, "");
+    const cleanedTokenString2 = cleanedTokenString.replace(/"/g, "");
+  
+    // useEffect(()=>{
+    //     const getfeed=()=>{
+    //         // axios.get(" http://localhost:3004/feeedback")
+    //         axios.get(`https://doctorz.onrender.com/api/v1/reviews/${id}`)
+    //         .then(res=>{
+    //             setComents(res.data)
+    //         }).catch(err=>console.log(err))
+    //     }
+    //     getfeed()
+    // },[])
+    useEffect(() => {
+      console.log(cleanedTokenString2)
+      const fetchData = async () => {
+        try {
+          const res = await fetch(`https://doctorz.onrender.com/api/v1/doctors/${id}/reviews`, {
+            method: 'get',
+            headers: {
+              'content-Type': 'application/json',
+              // Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZWRjNjExOGJiOTgzNWZlNTk0NmE5NCIsImlhdCI6MTcxNDA1MzI0MCwiZXhwIjoxNzIxODI5MjQwfQ.4uVSZuw7xDrWRaXiKN9B7xq309n3gCN2TUEL3f3EjuU`,
+              Authorization: `Bearer ${cleanedTokenString2}`,
+            },
+          });
+        
+          const result=await res.json()
+          if(!res.ok){
+            throw new Error(result.message)
+          }
+          console.log(result)
+          setComents(result.data.reviews)
+
+        } catch (error) {
+          
+          console.log(error)
         }
-        getfeed()
-    },[])
+      };
+    
+      fetchData();
+      
+    }, []);
     const formatDate = (dateString) => {
         return moment(dateString).format("MMM DD YYYY"); // Use Moment.js for formatting
       };
@@ -30,18 +66,20 @@ const FeedBack=()=>{
     comments.map((e)=>{
         return(
             <>
-             <div  class="d-flex align-item-center">
-    <figure className="me-3 mt-2 " style={{border:'none',maxWidth:'30px',maxHeight:'30px'}}>
-    <img class="img-fluid" src={avater} alt="User Avatar" />
+             <div  class="d-flex align-item-center" key={e.user._id}>
+             {/* <div  class="d-flex align-item-center" key={e._id}> */}
+    <figure className="me-3 mt-2 " style={{border:'none',maxWidth:'40px',maxHeight:'40px',borderRadius:"200px"}}>
+    <img class="img-fluid rounded-pill" src={e.user.photo} alt="User Avatar"  style={{borderRadius:"300px"}}/>
     </figure>
     
     <div>
-      <span class="text-sm">Ali Ahmed</span>
-      <p>{formatDate(e.date)}</p>
+      <span class="text-sm">{e.user.fullName}</span>
+      <p style={{color:'gray',fontSize:"13"}}>{formatDate(e.createdAt)}</p>
+      
     </div>
   </div>
   <div className="d-lg-flex justify-content-between">
-  <p class="text-sm">{e.textmessage}</p>
+  <p class="text-sm">{e.review}</p>
   <div className="starcolor">
   {
     [...Array(e.rating)].map((_,index)=><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
@@ -63,7 +101,7 @@ const FeedBack=()=>{
 {
     !showFeedBack&&(
         <div className="text-center mb-5 ">
-    <button className="btn btn-primary rounded-pill " onClick={()=>setFeedBack(true)}>Give feedback</button>
+    <button className="btn text-light w-25 " onClick={()=>setFeedBack(true)} style={{backgroundColor:'#96B9BB'}}>Give feedback</button>
   </div>
   
     )
